@@ -8,6 +8,7 @@ A mockup and utterly simplified login and roles manager developed with ASP Net C
 # Used NuGet Packages
 - Microsoft.EntityFrameworkCore (6.0.6);
 - Microsoft.EntityFrameworkCore.Design (6.0.6);
+- Microsoft.EntityFrameworkCore.SqlServer (6.0.6);
 - Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.6);
 - Microsoft.AspNetCore.Identity (2.2.0).
 
