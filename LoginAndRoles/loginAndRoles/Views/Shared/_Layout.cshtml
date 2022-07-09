@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@* We need to inject the SignInManager to use the If Else logic *@
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
@@ -13,7 +17,7 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">loginAndRoles</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Login And Roles</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,9 +30,38 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-                    </li>
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Helo @UserManager.GetUserName(User)</a>
+                        </li>
+                        <li class="nav-item">
+                            <form id="logoutForm" method="post" class="form-inline" asp-controller="Account"
+                                  asp-action="LogOff">
+                                <button type="submit" class="btn nav-link">Logout</button>
+                            </form>
+                        </li>
+                    }
+
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <form id="logoutForm" method="post" class="form-inline" asp-controller="Account"
+                                  asp-action="LogOff">
+                                <button type="submit" class="btn nav-link">Logout</button>
+                            </form>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </div>
@@ -42,7 +75,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2022 - loginAndRoles - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2022 - Login And Roles - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

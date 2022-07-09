@@ -12,7 +12,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/e6d3c16e9d3f4f5491e57d2d91f9a18cc2000/72/34d9c041/0200005Apdb.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1c497f459aa592aa6ac4d4767577dbc4634916341dc724c8c0158bb02c2cb9/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba051b6c1a42c39823f28988bfbcc9482cd952517dd241750b0dfdb7fd8e9/IHtmlHelperOfT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e4767fc48fd8b5424fe2e244e1b516b7cb4074428711b1365a3fe5050f79668/EmailAddressAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -76,7 +78,9 @@
       <workItem from="1656972495673" duration="2039000" />
       <workItem from="1656974637885" duration="51000" />
       <workItem from="1656974775492" duration="751000" />
-      <workItem from="1657060450555" duration="6501000" />
+      <workItem from="1657060450555" duration="6592000" />
+      <workItem from="1657320247321" duration="1237000" />
+      <workItem from="1657376903721" duration="5630000" />
     </task>
     <servers />
   </component>
@@ -86,5 +90,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/loginAndRoles/Controllers/AccountController.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/loginAndRoles/Controllers/AccountController.cs" initialLine="39" containingFunctionPresentation="method 'Login'">
+            <startOffsets>
+              <option value="1108" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1109" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

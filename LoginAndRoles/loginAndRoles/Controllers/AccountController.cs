@@ -22,6 +22,35 @@ public class AccountController : Controller
         return View();
     }
 
+    // GET Login
+    [HttpGet]
+    public IActionResult
+        Login(string? returnUrl = null) // Assigning a value to ReturnUrl (string) in case of it be null
+    {
+        var loginViewModel = new LoginViewModel();
+        loginViewModel.ReturnUrl = returnUrl ?? Url.Content("~/");
+        return View(loginViewModel);
+    }
+
+    // POST Login
+    [HttpPost]
+    [IgnoreAntiforgeryToken]
+    public async Task<IActionResult> Login(LoginViewModel loginViewModel, string returnUrl)
+    {
+        // Validation
+        if (ModelState.IsValid)
+        {
+            var result = await _signInManager.PasswordSignInAsync(loginViewModel.UserName, loginViewModel.Password,
+                loginViewModel.RememberMe, false);
+            if (result.Succeeded) return RedirectToAction("Index", "Home");
+
+            ModelState.AddModelError(string.Empty, "Could not login into the account");
+            return View(loginViewModel);
+        }
+
+        return View(loginViewModel);
+    }
+
     // Registering a user
     // We create a returnUrl to allow the user get back to the previous page in a easy way
     public async Task<IActionResult> Register(string? returnUrl = null)
@@ -58,5 +87,14 @@ public class AccountController : Controller
         }
 
         return View(registerViewModel);
+    }
+
+    // POST Logout
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> LogOff()
+    {
+        await _signInManager.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 }
